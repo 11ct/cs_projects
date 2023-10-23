@@ -1,0 +1,19 @@
+CONSTANT NullP <- -1
+
+TYPE TreeNode
+    DECLARE Data : STRING
+    DECLARE LeftP, RightP : INTEGER
+ENDTYPE
+
+DECLARE RootP,FreeP : INTEGER
+DECLARE Tree : ARRAY[0:MaxNodes] OF TreeNode
+
+
+PROCEDURE InitialiseTree
+    RootP <- NullP
+    FreeP <- 0
+    FOR Index <- 0 TO 5
+        Tree[Index].LeftP <- Index + 1
+    NEXT Index
+    Tree[6].LeftP <- NullP
+ENDPROCEDURE

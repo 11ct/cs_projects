@@ -1,0 +1,57 @@
+#DECLARE List : ARRAY[1:10] OF INTEGER
+#DECLARE Random, Midpoint, Index : INTEGER
+#DECLARE Found : BOOLEAN
+
+"""Midpoint <- LEN(List) DIV 2
+List <- [1,2,3,4,5,6,7,8,9,10]
+Found <- FALSE
+Number <- random
+Lower <- 0
+Higher <- LEN(List) - 1
+
+WHILE Found = FALSE:
+    IF Midpoint = Number
+        THEN
+            Found <- TRUE
+            OUTPUT "Well Done"
+    ELIF Midpoint > Number
+        THEN
+            OUTPUT "Guess lower"
+            Midpoint <- (Midpoint + Lower) DIV 2
+            Found <- FALSE
+    ELIF Midpoint < Number
+        THEN
+            OUTPUT "Guess higher"
+            Midpoint <- (Midpoint + Higher) DIV 2
+            Found <- FALSE
+    ENDIF
+ENDWHILE"""
+
+import random
+
+List = [1,2,3,4,5,6,7,8,9,10]
+Number = random.randint(List[0],List[len(List)-1])
+print("Random Number =", Number)
+
+def BinarySearch(List):
+    Lower = 0
+    Higher = len(List) - 1
+    Midpoint = len(List)//2
+    Found = False
+    while Found == False:
+        if Midpoint == Number:
+            Found = True
+            print("Well Done")
+        elif Midpoint < Number:
+            print(Midpoint)
+            print("Guess higher")
+            Midpoint = (Midpoint + Higher)//2
+            Found = False
+        elif Midpoint > Number:
+            print(Midpoint)
+            print("Guess lower")
+            Midpoint = (Midpoint + Lower)// 2
+            Found = False
+    return Midpoint
+            
+print(BinarySearch(List))
