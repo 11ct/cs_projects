@@ -55,3 +55,14 @@ def BinarySearch(List):
     return Midpoint
             
 print(BinarySearch(List))
+
+
+
+
+
+
+
+NullPtr = -1
+
+class TreeNode:
+    def __init__ 
