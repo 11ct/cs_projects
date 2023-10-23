@@ -62,7 +62,21 @@ print(BinarySearch(List))
 
 
 
-NullPtr = -1
+class Tree:   
+    def __init__(self, data=None, leftptr=None, rightptr=None):
+        self.data = data
+        self.leftptr = leftptr
+        self.rightptr = rightptr
 
-class TreeNode:
-    def __init__ 
+SearchAnimal = input("Here: ")
+IsFound = False
+Current = Rootptr
+while not IsFound:
+    if SearchAnimal == Tree[Current].data:
+        print("Found")
+        IsFound = True
+    else:
+        if SearchAnimal > Tree[Current].data:
+            Current = rightptr[Current]
+        else:
+            Current = leftptr[Current]

@@ -39,7 +39,35 @@ InitialiseTree()
 
 for item in Tree:
     print(item.LeftP)
-    
+
+NullPtr = -1
+
+#Insert a New Node into Binary Tree
+def InsertNode(NewItem):
+    if FreePtr != NullPtr:
+        NewNodePtr = FreePtr
+        FreePtr = Tree[FreePtr].LeftPtr
+        Tree[NewNodePtr].data = NewItem
+        Tree[NewNodePtr].LeftPtr = NullPtr
+        Tree[NewNodePtr].RightPtr = NullPtr
+        if RootPtr == NullPtr:
+            RootPtr = NullPtr
+        else:
+            ThisNodePtr = RootPtr
+            while ThisNodePtr != NullPtr:
+                PreviousNodePtr = ThisNodePtr
+                if NewItem < Tree[ThisNodePtr].data:
+                    TurnedLeft = True
+                    ThisNodePtr = Tree[ThisNodePtr].LeftPtr
+                else:
+                    TurnedLeft = False
+                    ThisNodePtr = Tree[ThisNodePtr].RightPtr
+            if TurnedLeft:
+                Tree[PreviousNodePtr].LeftPtr = NewNodePtr
+            else:
+                Tree[PreviousNodePtr].RightPtr = NewNodePtr
+                
+
 
 
 
