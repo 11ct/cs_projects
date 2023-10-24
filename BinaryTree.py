@@ -68,6 +68,7 @@ def InsertNode(NewItem):
                 Tree[PreviousNodePtr].RightPtr = NewNodePtr
                 
 #Find a node in a binary tree
+RootPointer = 0
 
 def FindNode(SearchItem):
     ThisNodePointer = RootPointer
