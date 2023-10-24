@@ -67,6 +67,16 @@ def InsertNode(NewItem):
             else:
                 Tree[PreviousNodePtr].RightPtr = NewNodePtr
                 
+#Find a node in a binary tree
+
+def FindNode(SearchItem):
+    ThisNodePointer = RootPointer
+    while ThisNodePointer != NullPtr and Tree[ThisNodePointer].data > SearchItem:
+        if SearchItem < Tree[ThisNodePointer].LeftPtr:
+            ThisNodePointer = Tree[ThisNodePointer]
+        else:
+            ThisNodePointer = Tree[ThisNodePointer].RightPtr
+    return ThisNodePointer
 
 
 

@@ -61,7 +61,7 @@ print(BinarySearch(List))
 
 
 
-
+#Create a binary tree
 class Tree:   
     def __init__(self, data=None, leftptr=None, rightptr=None):
         self.data = data
