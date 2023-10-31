@@ -81,16 +81,16 @@ AnimalTopPointer = 0
 ColourTopPointer = 0
 
 def PushAnimal(DTP):
-    global AnimalTopPointer
+    global AnimalTopPointer, ColourTopPointer
     if AnimalTopPointer == 20:
         return False
     else:
-        Animal[AnimalTopPointer] = DTP
+        Animal.append(DTP)
         AnimalTopPointer += 1
         return True
     
 def PopAnimal():
-    global AnimalTopPointer, ReturnData
+    global AnimalTopPointer, ColourTopPointer
     ReturnData = 0
     if AnimalTopPointer == 0:
         return ""
@@ -152,8 +152,8 @@ def OutputItem():
         print(CurrentColour,CurrentAnimal)
 
 def MainProgram():
+    global AnimalTopPointer, ColourTopPointer
     ReadData1()
-    for x in range(0,3):
+    for x in range(4):
         OutputItem()
     
-
