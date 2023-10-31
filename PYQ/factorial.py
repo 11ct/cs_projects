@@ -100,6 +100,7 @@ def PopAnimal():
         return ReturnData
     
 def ReadData():
+    global AnimalTopPointer, ColourTopPointer
     RAnimals = AnimalFile.read().splitlines()
     for counter in range(0,len(RAnimals)):
         print(RAnimals[counter])
@@ -142,6 +143,7 @@ def ReadData1():
 
 
 def OutputItem():
+    global ReturnData
     CurrentColour = PopColour(Colour)
     CurrentAnimal = PopAnimal(Animal)
     if ReturnData == 0:

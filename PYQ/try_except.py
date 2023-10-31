@@ -1,4 +1,5 @@
 #Try, except
+"""
 age = 0
 validated = False
 while not validated or age < 14:
@@ -10,14 +11,28 @@ while not validated or age < 14:
 
 if age > 0:
     print(f"Your are {age} years old")
-
+"""
 
 
 #validating_integers
+def valid_integer():
+    validated = False
+    value = 0
+    while not validated:
+        try:
+            value = int(input())
+            if value == 0:
+                raise ValueError
+            validated = True
+        except ValueError:
+            print("Invalid input")
+    return value
+
+
 print("Welcome to the times table quiz")
 print("Enter a times table that you would like to be tested on:")
 
-times_table = int(input())
+times_table = valid_integer()
 
 
 print("Enter the maximum value for your times table: ")
