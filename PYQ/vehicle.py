@@ -40,9 +40,14 @@ CarFile.close()
 
 
 JoWee = Vehicle()
+JoWee.VehicleID = "00100102"
+JoWee.Registration = "PYT010"
+JoWee.DateOfRegistration = "23/11/2023"
+JoWee.EngineSize = 2500
+JoWee.PurchasePrice = 21000.00
 
 #Write JoWee's car to a raddom file
-CarFile = open("JoWee.dat", "wb")
+CarFile = open("Cars2.dat", "wb")
 Address = hash(JoWee.VehicleID)
 CarFile.seek(Address)
 pickle.dump(JoWee, CarFile)
