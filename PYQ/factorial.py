@@ -88,8 +88,8 @@ def PushAnimal(DTP):
         return True
     
 def PopAnimal():
-    global AnimalTopPointer, ColourTopPointer
-    ReturnData = 0
+    global AnimalTopPointer, ReturnData
+    ReturnData = ""
     if AnimalTopPointer == 0:
         return ""
     else:
@@ -99,11 +99,10 @@ def PopAnimal():
     
 def ReadData():
     global AnimalTopPointer, ColourTopPointer
-    RAnimals = AnimalFile.read().splitlines()
-    for counter in range(0,len(RAnimals)):
-        print(RAnimals[counter])
-    print(RAnimals.readlines())
-    PushAnimal(ReadData())
+    RAnimals = open("AnimalData.txt", "r")
+    for thisline in RAnimals:
+        PushAnimal(thisline)
+    RAnimals.close()
 
 def PushColour(CTP):
     global ColourTopPointer
@@ -126,19 +125,21 @@ def PopColour():
 
 
 def ReadData1():
-    RAnimals = AnimalFile.read().splitlines()
-    for counter in range(0,len(RAnimals)):
-        print(RAnimals[counter])
-    print(RAnimals.readlines())
-    
-    RColours = ColourFile.read().splitlines()
-    for counter1 in range(0,len(RColours)):
-        print(RColours[counter1])
-    print(RColours.readlines())
+    try:
+        RAnimals = open("AnimalData.txt", "r")
+        for line in AnimalFile:
+            PushAnimal(line)
+        RAnimals.close()
+    except IOError:
+        print("Please check if the file exists")
 
-    PushAnimal(ReadData())
-    PushColour(ReadData1())
-
+    try:  
+        RColours = open("ColourData.txt", "r")
+        for line1 in RColours:
+            PushColour(line1)
+        RColours.close()
+    except IOError:
+        print("Please check if the file exists")
 
 def OutputItem():
     global ReturnData
@@ -157,3 +158,4 @@ def MainProgram():
     for x in range(4):
         OutputItem()
     
+
