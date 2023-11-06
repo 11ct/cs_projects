@@ -71,10 +71,8 @@ for line in AnimalFile:
 
 
 global Animal, Colour
-MaxAnimalSize = 20
-MaxColourSize = 10
-Animal = ["" for x in range(0,MaxAnimalSize)]
-Colour = ["" for t in range(0, MaxColourSize)]
+Animal = [] #To contain 20 elements
+Colour = [] #To contain 10 elements
 
 
 AnimalTopPointer = 0
