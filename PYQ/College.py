@@ -1,20 +1,47 @@
 class Courses:
 
-    def __init__(self,CourseTitle="", MaxStudent=0, NumberOfLessons=0, CourseLesson=[], CourseAssessment=""):
+    def __init__(self,CourseTitle, MaxStudent):
         self.CourseTitle = CourseTitle
         self.MaxStudent = MaxStudent
-        self.NumberOfLessons = NumberOfLessons
-        self.CourseLesson = CourseLesson
-        self.CourseAssessment = CourseAssessment
+        self.NumberOfLessons = 0
+        self.CourseLesson = []
+        self.CourseAssessment = None
+    
+    def GetCoursesTitle(self):
+        return self.CourseTitle
+    
+    def GetMaxStudent(self):
+        return self.MaxStudent
+    
+    def GetNumberOfLessons(self):
+        return self.NumberOfLessons
+    
+    def GetCourseLesson(self):
+        return self.CourseLesson
 
-    def AddLesson():
-        pass
+    def GetCourseAssessment(self):
+        return self.CourseAssessment
 
-    def AddAssessment():
-        pass
+    def AddLesson(self, Lesson):
+        if self.NumberOfLessons < 50:
+            self.NumberOfLessons += 1
+            self.CourseLesson[self.NumberOfLessons] = Lesson
+        else:
+            print("Cannot add more than 50 lessons")
 
-    def OutputCourseDetails():
-        pass
+    def AddAssessment(self, Assessment):
+        self.CourseAssessment = Assessment
+
+    def OutputCourseDetails(self):
+        print(f"\nCourse Title: {self.CourseTitle}")
+        print(f"Max Student: {self.MaxStudent}")
+        print(f"Number of Lessons: {self.NumberOfLessons}")
+
+        for Lesson, Lesson_num in self.CourseLesson.items():
+            print(f"Lesson {Lesson_num}")
+
+        if self.CourseAssessment is not None:
+            print("Assessment")
     #Define getters and setters
 
 

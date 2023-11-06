@@ -128,7 +128,7 @@ def ReadData1():
     try:
         RAnimals = open("AnimalData.txt", "r")
         for line in AnimalFile:
-            PushAnimal(line)
+            PushAnimal(line.strip())
         RAnimals.close()
     except IOError:
         print("Please check if the file exists")
@@ -136,21 +136,24 @@ def ReadData1():
     try:  
         RColours = open("ColourData.txt", "r")
         for line1 in RColours:
-            PushColour(line1)
+            PushColour(line1.strip())
         RColours.close()
     except IOError:
         print("Please check if the file exists")
 
 def OutputItem():
-    global ReturnData
+    global AnimalTopPointer, ColourTopPointer
     CurrentColour = PopColour(Colour)
     CurrentAnimal = PopAnimal(Animal)
-    if ReturnData == 0:
-        print("No animal")
-    elif ReturnData1 == 0:
+    if CurrentColour == "":
         print("No colour")
+        PushAnimal(CurrentAnimal)
     else:
-        print(CurrentColour,CurrentAnimal)
+        if CurrentAnimal == "":
+            print("No animal")
+            PushColour(CurrentColour)
+        else:
+            print(CurrentColour + " " + CurrentAnimal)
 
 def MainProgram():
     global AnimalTopPointer, ColourTopPointer
@@ -158,4 +161,3 @@ def MainProgram():
     for x in range(4):
         OutputItem()
     
-
