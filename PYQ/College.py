@@ -1,70 +1,37 @@
-class Courses:
-
-    def __init__(self,CourseTitle, MaxStudent):
-        self.CourseTitle = CourseTitle
-        self.MaxStudent = MaxStudent
-        self.NumberOfLessons = 0
-        self.CourseLesson = []
-        self.CourseAssessment = None
-    
-    def GetCoursesTitle(self):
-        return self.CourseTitle
-    
-    def GetMaxStudent(self):
-        return self.MaxStudent
-    
-    def GetNumberOfLessons(self):
-        return self.NumberOfLessons
-    
-    def GetCourseLesson(self):
-        return self.CourseLesson
-
-    def GetCourseAssessment(self):
-        return self.CourseAssessment
-
-    def AddLesson(self, Lesson):
-        if self.NumberOfLessons < 50:
-            self.NumberOfLessons += 1
-            self.CourseLesson[self.NumberOfLessons] = Lesson
-        else:
-            print("Cannot add more than 50 lessons")
-
-    def AddAssessment(self, Assessment):
-        self.CourseAssessment = Assessment
-
-    def OutputCourseDetails(self):
-        print(f"\nCourse Title: {self.CourseTitle}")
-        print(f"Max Student: {self.MaxStudent}")
-        print(f"Number of Lessons: {self.NumberOfLessons}")
-
-        for Lesson, Lesson_num in self.CourseLesson.items():
-            print(f"Lesson {Lesson_num}")
-
-        if self.CourseAssessment is not None:
-            print("Assessment")
-    #Define getters and setters
+import Course
 
 
-class Lesson:
-
-    def __init__(self, LessonTitle="", DurationMinutes=0, RequiresLab=False):
-        self.LessonTitle = LessonTitle
-        self.DurationMinutes = DurationMinutes
-        self.RequiresLab = RequiresLab
-
-    def OutputLessonDetails(self):
-        print("Title" + self.LessonTitle)
-        print("Duration" + self.DurationMinutes)
-        print("Requires Lab" + self.RequiresLab)
+course1 = Course.Courses("Object Oriented Programming", 30)
+lesson1 = Course.Lesson("Introduction to OOP", 60, False)
+lesson2 = Course.Lesson("Inheritance and Polymorphism", 90, True)
+finalassessment = Course.Assessment("Final Exam", 100)
 
 
+course1.AddLesson(lesson1)
+course1.AddLesson(lesson2)
+course1.AddAssessment(finalassessment)
 
-class Assessment:
+course1.OutputCourseDetails()
 
-    def __init__(self, AssessmentTitle="", MaxMarks=0):
-        self.AssessmentTitle = AssessmentTitle
-        self.MaxMarks = MaxMarks
+"""
+print(f"\nCourse Title: {course1.GetCoursesTitle()}")
+print(f"Max Student: {course1.GetMaxStudent()}")
+print(f"Number of Lessons: {course1.GetNumberOfLessons()}")
 
-    def OutputAssessmentDetails(self):
-        print("Title" + self.AssessmentTitle)
-        print("Max Marks" + self.MaxMarks)
+
+for Lesson_num, Lesson in course1.GetCourseLesson().items():
+    print(f"Lesson: {Lesson_num}")
+    Lesson.OutputLessonDetails()
+if course1.GetCourseAssessment() is not None:
+    print(f"\nAssessment Title: {course1.GetCourseAssessment().GetAssessmentTitle()}")
+    print(f"Max Marks: {course1.GetCourseAssessment().GetMaxMarks()}")
+"""
+
+course2 = Course.Courses("Social Works and Social Administration", 100)
+lesson3 = Course.Lesson("Administrative Law", 180, False)
+finalexam = Course.Assessment("Final Exam", 100)
+
+course2.AddLesson(lesson1)
+course2.AddLesson(lesson3)
+course2.AddAssessment(finalexam)
+
